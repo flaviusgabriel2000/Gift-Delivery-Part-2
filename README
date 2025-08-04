@@ -1,0 +1,35 @@
+// Usturoi Flavius-Gabriel, 324CD
+// Etapa 2 - Santa Claus is coming to ACS students
+
+
+        Pentru etapa a 2-a din cadrul proiectului, am pornit implementarea de la
+codul scris in prima etapa si am adaugat noi functionalitati, dar si mici imbu-
+natatiri. Ca noi functionalitati, am introdus in clasele ce se ocupa de input
+campurile pentru cantitatea cadourilor si elfii asignati fiecarui copil. Drept
+imbunatatiri, am adus modificari catorva metode deja implementate (calcularea
+scorului average, actualizarea informatiilor despre copii, asignarea cadourilor
+catre copii etc.).
+        Pentru partea de design si organizare, proiectul a fost realizat folo-
+sind 4 design pattern-uri:
+            - Simularea a fost implementata cu ajutorul design pattern-ului
+Strategy (o strategie care simuleaza runda 0 si o strategie pentru urmatorii
+numberOfYears ani). Interfata si cele doua clase care ofera implementarea inter-
+fetei se afla in pachetul solver.strategies.simulationstrategy;
+            - In cadrul etapei a 2-a, strategiile de asignare a cadourilor pentru
+fiecare schimbare anuala au fost implementate tot cu ajutorul Strategy, numai ca
+de data asta am decis sa il combin cu design pattern-ul Factory, pentru a putea
+genera obiecte in functie de tipul strategiei date in input. Clasa care se ocupa de
+aceasta parte este AssignStrategyFactory din pachetul solver.strategies.assignstrategy,
+iar implementarile efective se afla tot in acest pachet;
+            - Pentru clasa Child din solver.simulate, am venit cu o modificare a
+structurii fata de etapa 1 si am decis sa o implementez prin intermediul design
+pattern-ului Builder. De asemenea, niceScoreBonus a fost implementat folosind
+Builder;
+            - Pentru partea de serializare a rezultatelor obtinute in urma simu-
+larii se ocupa clasa Output din pachetul solver.simulate.output, care este imple-
+mentata folosind design pattern-ul Singleton.
+
+
+        Identic etapei 1, parsarea datelor de intrare si scrierea output-ului
+este realizata cu ajutorul librariei Jackson impreuna cu clasa ObjectMapper
+care transpune informatiile din JSON in obiecte si invers.
